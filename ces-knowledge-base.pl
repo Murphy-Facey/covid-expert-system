@@ -7,11 +7,14 @@
 % 3rd represents the number of persons with severe symptoms
 stats(0,0,0).
 
-symptom("low blood pressure", "fainting").
 symptom("unknown", "fainting").
 
-symptom(fever).
-lowBloodSym(fever).
+% there are the symptoms related to low blood pressure
+symptom("low blood pressure", "fainting").
+
+% there are the symptoms related to covid
+symptom("mild", "<insert_symptom_here>").
+symptom("severe", "<insert_symptom_here>").
 
 get_temperature(FahrTemp):-
     % not going to included the question because 
@@ -22,29 +25,25 @@ get_temperature(FahrTemp):-
 fever(Effect, FahrTemp):-
     (FahrTemp >= 100.4 -> Effect is 1; Effect is 0).
 
-% mild: 2, severe: 2 -> 
-% mild: 2, severe: 2
-% mild: 3, severe: 1
-% mild: 1, severe: 1
-
-
 % if there is two mild symptoms, the number of severe symptoms 
 % are less than the number of mild symptoms then mild symptoms.
 % else if severe symptoms are two or more than mild when mild
-% is two, then severe
-% else nothing
+% is two, then severe else nothing. Please see [example] below.
+
+% mild: (0,1,2), severe: X>2 <- this person suffers from severe symptoms
+% mild: X<3, severe: (0,1)   <- this person suffers from mild symptoms
+% mild: Y<1, severe: X<1     <- this person doesn't have covid
 
 covid:-
     get_temperature(FahrTemp),
     fever(FeverEffect, FahrTemp),
 	(FeverEffect == 1 -> write('Has fever'); write('does not have fever')).
 
-lowBloodSym(low_blood_pressure).
-symp(low_blood_pressure).
-
-low_blood(Sym1, Sym2, Sym3, Effect) :-
-    (lowBloodSym(Sym1); lowBloodSym(Sym2); lowBloodSym(Sym3) -> 
-    Effect is 1; Effect is 0).
+low_blood_pressure(Sym1, Sym2, Sym3, Effect) :-
+    (symptom("low blood pressure", Sym1);
+     symptom("low blood pressure", Sym2); 
+     symptom("low blood pressure", Sym3) -> 
+     Effect is 1; Effect is 0).
 
 /*low_blood_pressure(...):-
     symptom(DizzyEffect, Symp1),
@@ -56,11 +55,17 @@ low_blood(Sym1, Sym2, Sym3, Effect) :-
 check_dia_sys_level:-
     check_diastolic_reading(DiaEffect),
     check_systolic_reading(SysEffect),
-    ((DiaEffect == 1, SysEffect == 1) -> write("might have low blood pressure");write("don't have low blood pressure")).
+    ((DiaEffect == 1; SysEffect == 1) -> 
+        write("might have low blood pressure");
+        write("don't have low blood pressure")).
 
 check_diastolic_reading(Effect):-
-    read(
-    
+    read(Level),
+    (Level < 60 -> Effect is 1; Effect is 0).
+
+check_systolic_reading(Effect):-
+    read(Level),
+    (Level < 90 -> Effect is 1; Effect is 0).
     
 symptom(Effect, Symptom):-
     write(Symptom), write(" ?"),
