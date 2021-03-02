@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Covid System</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
+    <!-- <script src='main.js'></script> -->
+</head>
+
+<body>
+    <div class='container d-flex '>
+        <div class="w-50">
+            <h4> Answer the following questions</h4>
+            <div class="row shadow p-3 mb-4 bg-body rounded">
+                <div class="col-auto ">
+                    <img src="./images/thermometer.png" style="background-color: #F43664" class="img-thumbnail"
+                        alt="Thermometer">
+                </div>
+                <div class="col">
+                    <p class="my-0"> What is your temperature? </p>
+                    <div class="d-flex flex-row">
+                        <div class="border border-primary rounded p-1">
+                            <span style="font-size:15px" id="userTemp"> 50 </span>
+                            <span>&#176;</span>
+                            C
+                        </div>
+                        <div class="w-75 d-flex align-self-center">
+                            <input type="range" min="20" max="100" value="50" id="tempRange"
+                                class="form-range w-75 ps-3" id="tempRange">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row shadow p-3 mb-4 bg-body rounded">
+                <div class="col-auto ">
+                    <img src="./images/dizziness.png" style="background-color: #2EA3E4" class="img-thumbnail"
+                        alt="dizziness">
+                </div>
+                <div class="col">
+                    <p class="my-0"> Are you feeling dizzy? </p>
+                    <div class="d-flex justify-content-around w-50">
+                        <button type="button" class="btn btn-outline-dark">Yes</button>
+                        <button type="button" class="btn btn-outline-dark">No</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row shadow p-3 mb-4 bg-body rounded">
+                <div class="col-auto ">
+                    <img src="./images/eyeglasses.png" style="background-color: #DC53DF" class="img-thumbnail"
+                        alt="eyeglasses">
+                </div>
+                <div class="col">
+                    <p class="my-0"> Are you experiencing blurry vision? </p>
+                    <div class="d-flex justify-content-around w-50">
+                        <button type="button" class="btn btn-outline-dark">Yes</button>
+                        <button type="button" class="btn btn-outline-dark">No</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row shadow p-3 mb-4 bg-body rounded">
+                <div class="col-auto ">
+                    <img src="./images/airplane.png" style="background-color: #9B6BFF" class="img-thumbnail"
+                        alt="airplane">
+                </div>
+                <div class="col">
+                    <p class="my-0"> Have you travelled recently? If yes, where to"</p>
+                    <div class="d-flex justify-content-around w-75">
+                        <button type="button" class="btn btn-outline-dark">Yes</button>
+                        <button type="button" class="btn btn-outline-dark">No</button>
+                        <button type="button" class="btn btn-outline-dark">Select country</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-3 mb-4 ms-3 w-50 d-flex justify-content-center">
+            <div class="shadow p-3 mb-4 rounded w-75 d-flex flex-column justify-content-center">
+                <div>
+                    <div class="d-flex justify-content-center p-2">
+                        <span style="background-color: #F43664; font-weight: bold;" class="p-1 text-white rounded">
+                            HOW TO PROTECT YOURSELF
+                        </span>
+                    </div>
+                    <div class="d-flex justify-content-center p-2">
+                        <span style="background-color: #68A662; font-weight: bold;" class="p-1 text-white rounded">
+                            FROM COVID-19
+                        </span>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <img src="./images/shield.png" class="img-fluid w-50" alt="Shield">
+                </div>
+
+                <div class="d-flex flex-column">
+                    <!-- <div>
+                    <img src="./images/open_quote.png" class="img-fluid" alt="Open_Quote">
+                </div> -->
+                    <div style="padding-left: 20%;">
+                        <img src="./images/open_quote.png" class="img-fluid" alt="Open_Quote">
+                    </div>
+                    <div>
+                        <span class="d-flex justify-content-center">
+                            Remember to socially distance
+                        </span>
+                        <span class="d-flex justify-content-center">
+                            yourself from persons
+                        </span>
+                    </div>
+
+                    <div style="padding-left: 75%;">
+                        <img src="./images/close_quote.png" class="img-fluid" alt="Close_Quote">
+                    </div>
+
+                    <!-- <div class="d-flex justify-content-end">
+                    <img src="./images/close_quote.png" class="img-fluid" alt="Close_Quote">
+                </div> -->
+                </div>
+
+                <div class="d-flex justify-content-center pt-4">
+                    <img src="./images/dots.png" class="img-fluid" alt="Dots">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const tempRange = document.getElementById(" tempRange"); let userTemp = document.getElementById('userTemp');
+        tempRange.oninput = () => {
+            userTemp.innerHTML = tempRange.value;
+        }
+    </script>
+</body>
+
+</html>
