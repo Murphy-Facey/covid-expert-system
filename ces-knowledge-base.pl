@@ -7,7 +7,9 @@
 % 3rd represents the number of persons with severe symptoms
 stats(0,0,0).
 
-symptom("unknown", "fainting").
+symptom(low_blood, fainting).
+symptom(low_blood, dizziness).
+symptom(low_blood, blurry_vision).
 
 % there are the symptoms related to low blood pressure
 symptom("low blood pressure", "fainting").
@@ -39,18 +41,14 @@ covid:-
     fever(FeverEffect, FahrTemp),
 	(FeverEffect == 1 -> write('Has fever'); write('does not have fever')).
 
-low_blood_pressure(Sym1, Sym2, Sym3, Effect) :-
-    (symptom("low blood pressure", Sym1);
-     symptom("low blood pressure", Sym2); 
-     symptom("low blood pressure", Sym3) -> 
-     Effect is 1; Effect is 0).
+low_blood_pressure(ListOfSymptoms, Effect) :-
+    (check_symptom(low_blood,X, Effect).
 
-/*low_blood_pressure(...):-
-    symptom(DizzyEffect, Symp1),
-    symptom(FaintEffect, "fainting"),
-    symptom(BlurEffect, "blurry vision"),
-    TotalEffect is DizzyEffect + BlurEffect + FaintEffect,
-    (TotalEffect > 1 -> check_dia_sys_level; fail).*/
+check_symptom(low_blood, [], 0).
+check_symptom(X, [H|T], N):-
+    symptom(X, H),
+    check_symptom(X, T, NT),
+    N is 1 + NT.
 
 check_dia_sys_level:-
     check_diastolic_reading(DiaEffect),
