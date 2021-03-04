@@ -7,21 +7,23 @@
 % 3rd represents the number of persons with severe symptoms
 stats(0,0,0).
 
-symptom(low_blood, fainting).
-symptom(low_blood, dizziness).
-symptom(low_blood, blurry_vision).
-
 % there are the symptoms related to low blood pressure
-symptom("low blood pressure", "fainting").
+symptom(low_blood_pressure, fainting).
+symptom(low_blood_pressure, dizziness).
+symptom(low_blood_pressure, blurry_vision).
 
 % there are the symptoms related to covid
-symptom("mild", "<insert_symptom_here>").
-symptom("severe", "<insert_symptom_here>").
+symptom(mild, fatigue).
+symptom(mild, coughs).
+symptom(mild, loss_of_taste).
 
-get_temperature(FahrTemp):-
+symptom(severe, short_of_breath).
+symptom(severe, chest_pain).
+symptom(severe, loss_of_speech).
+
+get_temperature(FahrTemp, CelcTemp):-
     % not going to included the question because 
     % it is handled by the UI
-    read(CelcTemp),
     FahrTemp is CelcTemp * 9 / 5 + 32.
 
 fever(Effect, FahrTemp):-
@@ -36,15 +38,28 @@ fever(Effect, FahrTemp):-
 % mild: X<3, severe: (0,1)   <- this person suffers from mild symptoms
 % mild: Y<1, severe: X<1     <- this person doesn't have covid
 
-covid:-
-    get_temperature(FahrTemp),
+covid(ListOfMildSymptoms, ListOfSevereSymptoms, Temperature, Diagnosis):-
+    check_mild_symptom(ListOfMildSymptoms, Temperature, MildEffect),
+    check_severe_symptom(ListOfSevereSymptoms, SevereEffect),
+    ((MildEffect < 3, SevereEffect > MildEffect; SevereEffect > 2) -> Diagnosis = 'severe';
+     (MildEffect > 2, SevereEffect < MildEffect) -> Diagnosis = 'mild';
+     Diagnosis = 'not_known').
+
+check_mild_symptom(ListOfCovidSymptom, Temperature, TotalEffect):-
+    get_temperature(FahrTemp, Temperature),
     fever(FeverEffect, FahrTemp),
-	(FeverEffect == 1 -> write('Has fever'); write('does not have fever')).
+    check_symptom(mild, ListOfCovidSymptom, Effect),
+    TotalEffect is FeverEffect + Effect.
 
-low_blood_pressure(ListOfSymptoms, Effect) :-
-    (check_symptom(low_blood,X, Effect).
+check_severe_symptom(ListOfCovidSymptom, TotalEffect):-
+    check_symptom(severe, ListOfCovidSymptom, TotalEffect).
 
-check_symptom(low_blood, [], 0).
+low_blood_pressure(ListOfSymptoms, Effect):-
+    check_symptom(low_blood_pressure, ListOfSymptoms, Effect).
+
+check_symptom(low_blood_pressure, [], 0).
+check_symptom(mild, [], 0).
+check_symptom(severe, [], 0).
 check_symptom(X, [H|T], N):-
     symptom(X, H),
     check_symptom(X, T, NT),
@@ -64,8 +79,15 @@ check_diastolic_reading(Effect):-
 check_systolic_reading(Effect):-
     read(Level),
     (Level < 90 -> Effect is 1; Effect is 0).
+
+update(Diagnosis):-
+    (Diagnosis == 'severe' -> updateStats(0, 1);
+     Diagnosis == 'mild' -> updateStats(1, 0);
+     updateStats(0,0)).
+
+updateStats(NM, NS):-
+    stats(CT, CM, CS),
+    NewTotal is CT + 1, NewMild is CM + NM, NewSevere is CS + NS,
+    retractall(stats(_,_,__)),
+    assert(stats(NewTotal, NewMild, NewSevere)).
     
-symptom(Effect, Symptom):-
-    write(Symptom), write(" ?"),
-    read(Response),
-    ((Response == yes; Response == y) -> Effect is 1; Effect is 0)).
