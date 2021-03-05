@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans:wght@400;700;800&display=swap');
+
+:root {
+    --light-grey: #F4F4F6;
+    --light-blue: #00CCF5;
+    --dark-blue: #615E71;
+    --mid-grey: #DDDDE3
+}
+
+*, *::before, *::after {
+    margin: 0px;
+    padding: 0px;
+}
+
+.bkg-img {
+    pointer-events: none;
+}
+
+.bkg-img img:nth-child(1) {
+    position: absolute;
+    top: 0px;
+    left: 100%;
+    transform: translateX(-100%);
+}
+
+.bkg-img img:nth-child(2) {
+    position: absolute;
+    top: 68px;
+    left: 100%;
+    transform: translateX(-100%);
+}
+
+.container,
+.question-container {
+    width: 960px;
+    height: 600px;
+    background-color: var(--light-grey);
+    position: relative;
+}
+
+.body-heading {
+    position: relative;
+    top: 151px;
+    left: 50px;
+}
+
+.body-heading h3{
+    position: relative;
+    top: 10px;
+    left: 7px;
+    font-family: 'Open Sans';
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+
+.body-heading h1 span:nth-child(1) {
+    color: var(--light-blue);
+    font-size: 44px;
+    font-family: 'Open Sans';
+    font-weight: 900;
+}
+
+.body-heading h1 span:nth-child(2) {
+    color: var(--dark-blue);
+    font-size: 44px;
+    font-family: 'Lato';
+}
+
+.info-section {
+    position: absolute;
+    top: 262px;
+    left: 50px;
+    width: 474px;
+    font-family: 'Open Sans';
+    font-size: 16px;
+    color: var(--dark-blue);
+}
+
+.btns {
+    position: absolute;
+    top: 398px;
+    left: 50px;
+}
+
+.btns button {
+    height: 43px;
+    padding: 0 30px;
+    outline: none;
+    cursor: pointer;
+}
+.btns button:nth-child(1) {
+    background-color: var(--dark-blue);
+    color: var(--light-blue);
+    border-radius: 5px;
+    border: none;
+    font-family: 'Open Sans';
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 15px;
+}
+.btns button:nth-child(2) {
+    background-color: transparent;
+    color: var(--dark-blue);
+    border-radius: 5px;
+    border: 2px solid var(--mid-grey);
+    font-family: 'Lato';
+    font-size: 16px;
+    letter-spacing: 1.6px;
+    font-weight: 700;
+}
+
+/* -----------------------------------
+   -----------------------------------
+
+   -----------------------------------
+   -----------------------------------
+*/
+
+.question {
+    width: 574px;
+    height: 96px;
+    margin-left: 20px;
+    border-radius: 17px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+}
+
+.question .icon {
+    width: 76px;
+    height: 72px;
+    background: #DC53DF;
+    margin: 0px 10px;
+    border-radius: 13px;
+}
+
+.question .q-item {
+    height: 72px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lato';
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: #615E71;
+}
+
