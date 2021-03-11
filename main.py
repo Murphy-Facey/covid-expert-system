@@ -2,6 +2,9 @@ import eel
 from pyswip import Prolog
 
 prolog = Prolog()
+prolog.consult('ces-knowledge-base.pl')
+
+
 eel.init('ui')
 
 # GLOBAL VARIABLES 
@@ -48,4 +51,4 @@ def get_treatments(diagnosis):
     t = list(prolog.query(f'treatment({diagnosis}).'))
     # call javascript function here
 
-eel.start('main.html', mode='electron')
+eel.start('index.html', mode='electron')
