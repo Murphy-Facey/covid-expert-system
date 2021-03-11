@@ -3,10 +3,9 @@ body {
   background: #e5e5e5;
 
   color: #615e71;
-  display: flex;
 }
 
-@media only screen and (max-width: 1920px) {
+/* @media only screen and (max-width: 1920px) {
   body {
     margin-left: 25%;
   }
@@ -16,7 +15,7 @@ body {
   body {
     margin-left: 15%;
   }
-}
+} */
 
 .covidia-text {
   position: absolute;
