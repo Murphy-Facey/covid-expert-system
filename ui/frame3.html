@@ -7,7 +7,6 @@
     <title>Covid System</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/frame3.css'>
-    <!-- <script src='main.js'></script> -->
 </head>
 
 <body>
@@ -19,57 +18,60 @@
             <div id="expert-text">
                 EXPERT SYSTEM
             </div>
-            <div id="green-rectangle">
-                <div id="green-rectangle-text">
-                    You don’t have hypertension. For more info, click here
-                </div>
-            </div>
-
-            <div class="card-1">
-                <div id="rectangle-1"></div>
-                <div id="symptoms-question">
-                    Do ou have any of these symptoms?
-                </div>
-                <div id="inner-card-scroll">
-                    <div class="option-card dizzy">
-                        <input type="checkbox" id="dizzy" class="checkbox-square" name="dizzy">
-                        <label for="dizzy" class="checkbox-text"> Dizziness</label>
-                    </div>
-
-                    <div class="option-card blurry">
-                        <input type="checkbox" id="blurry" class="checkbox-square" name="blurry">
-                        <label for="blurry" class="checkbox-text"> Blurry vision</label>
-                    </div>
-
-                    <div class="option-card fainting">
-                        <input type="checkbox" id="fainting" class="checkbox-square" name="fainting">
-                        <label for="fainting" class="checkbox-text"> Fainting</label>
+            <div class="body-container">
+                <div class="green-rectangle show-status">
+                    <div id="green-rectangle-text">
+                        You don’t have hypertension. For more info, click here
                     </div>
                 </div>
+                <div class="card-container">
+                    <div class="card card-1">
+                        <div class="big-rect"></div>
+                        <div class="card-body">
+                            <p>Do you have any of these symptoms?</p>
+                            <div id="inner-card-scroll">
+                                <div class="option-card dizzy">
+                                    <input type="checkbox" id="dizzy" class="checkbox-square" name="dizzy">
+                                    <label for="dizzy" class="checkbox-text"> Dizziness</label>
+                                </div>
 
-                <button class="btn btn-submit">
-                    Submit symptom(s)
-                </button>
-            </div>
+                                <div class="option-card blurry">
+                                    <input type="checkbox" id="blurry" class="checkbox-square" name="blurry">
+                                    <label for="blurry" class="checkbox-text"> Blurry vision</label>
+                                </div>
 
-            <div class="card-2">
-                <div id="rectangle-2"></div>
-                <div class="test-question-text">
-                    What is your systolic level?
+                                <div class="option-card fainting">
+                                    <input type="checkbox" id="fainting" class="checkbox-square" name="fainting">
+                                    <label for="fainting" class="checkbox-text"> Fainting</label>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-submit">
+                                Submit symptom(s)
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card card-2">
+                        <div class="small-rect purple"></div>
+                        <div class="card-body">
+                            <p>What is your systolic level?</p>
+                            <input type="text" class="test-question-input" placeholder="Enter level here ...">
+                            <span>mm Hg</span>
+                        </div>
+                    </div>
+
+                    <div class="card card-3">
+                        <div class="small-rect green"></div>
+                        <div class="card-body">
+                            <p>What is your diastolic level?</p>
+                            <input type="text" class="test-question-input" placeholder="Enter level here ...">
+                            <span>mm Hg</span>
+                        </div>
+                    </div>
                 </div>
-                <input type="text" class="test-question-input" placeholder="Enter level here ...">
-                <input type="text" class="mmHg-text" value="mm Hg" disabled />
-            </div>
 
-            <div class="card-3">
-                <div id="rectangle-3"></div>
-                <div class="test-question-text">
-                    What is your diastolic level?
-                </div>
-                <input type="text" class="test-question-input" placeholder="Enter level here ...">
-                <input type="text" class="mmHg-text" value="mm Hg" disabled />
             </div>
-
             <button class="btn btn-diagnosis">
                 Check diagnosis
             </button>
@@ -95,10 +97,11 @@
             </div>
 
             <img src="./images/close_quote.png" alt="Close_Quote" id="close-quote">
-
             <img src="./images/dots.png" alt="Dots" id="dots">
         </div>
     </div>
+    <script src="/eel.js"></script>
+    <script src="js/hypotension.js"></script>
 </body>
 
 </html>
