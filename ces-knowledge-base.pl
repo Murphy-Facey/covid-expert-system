@@ -93,25 +93,23 @@ add_low_blood_pressure_symptom(Symptom, Message):-
 % ------------------------------------------------------
 %  CHECKS FOR DIASTOLIC AND SYSTOLIC LEVELS         
 % ------------------------------------------------------
-check_dia_sys_level:-
-    check_diastolic_reading(DiaEffect),
-    check_systolic_reading(SysEffect),
+check_dia_sys_level(Di_level, Sy_level, Effect):-
+    check_diastolic_reading(DiaEffect, Di_level),
+    check_systolic_reading(SysEffect, Sy_level),
     ((DiaEffect == 1; SysEffect == 1) -> 
-        write("might have low blood pressure");
-        write("don't have low blood pressure")).
+        Effect is 1;
+        Effect is 0).
 
 % ------------------------------------------------------
 %  CHECKS FOR DIASTOLIC LEVELS         
 % ------------------------------------------------------
-check_diastolic_reading(Effect):-
-    read(Level),
+check_diastolic_reading(Effect, Level):-
     (Level < 60 -> Effect is 1; Effect is 0).
 
 % ------------------------------------------------------
 %  CHECKS FOR SYSTOLIC LEVELS         
 % ------------------------------------------------------
-check_systolic_reading(Effect):-
-    read(Level),
+check_systolic_reading(Effect, Level):-
     (Level < 90 -> Effect is 1; Effect is 0).
 
 
