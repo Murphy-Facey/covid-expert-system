@@ -38,7 +38,7 @@ function on_select(name) {
     } else {
         eel.get_symptoms(name)(set_symptoms);
     }
-    document.querySelector('.default_option li').innerHTML = document.querySelector(`.select_ul .${name}`).parentElement.innerHTML;
+    document.querySelector('.default-option li').innerHTML = document.querySelector(`.select-ul .${name}`).parentElement.innerHTML;
     document.querySelector('.custom-select').classList.remove('active');
 }
 
