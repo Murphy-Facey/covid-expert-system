@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans:wght@400;700;800&display=swap");
 
-
 *,
 *::before,
 *::after {
@@ -9,12 +8,52 @@
 }
 
 body {
-  margin: 0px;
   overflow: hidden;
 }
 
-input[type="checkbox"]:checked ~ .checkmark{
-  background-color: #000000;
+input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.custom {
+  position: relative;
+  width: 30px;
+  height: 25px;
+}
+
+.custom-checkbox {
+  width: 14px;
+  height: 13px;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translateY(-50%);
+  /* margin: 1px; */
+  border: 2px solid #ec1f52;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+input[type="checkbox"]:checked + .custom-checkbox:after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 6px;
+  height: 2.5px;
+  
+  border: solid white;
+  border-width: 0px 0px 2px 2px;
+  transform: rotateZ(-45deg);
+}
+
+input[type="checkbox"]:checked + .custom-checkbox {
+  background-color: #ec1f52;
 }
 
 #container {
@@ -66,7 +105,6 @@ input[type="checkbox"]:checked ~ .checkmark{
   top: 24px;
 
   font-family: Lato;
-  font-style: normal;
   font-weight: normal;
   font-size: 24px;
   line-height: 29px;
@@ -134,17 +172,9 @@ input[type="checkbox"]:checked ~ .checkmark{
 }
 
 @keyframes show-text {
-  0% {
-    opacity: 0;
-  }
-
-  66% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  66% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .show-status {
@@ -188,8 +218,11 @@ input[type="checkbox"]:checked ~ .checkmark{
 
 .card-1 {
   height: 251px;
-  left: 39px;
-  top: 167px;
+}
+
+.card-2, 
+.card-3 {
+  height: 96px;
 }
 
 .big-rect {
@@ -202,22 +235,6 @@ input[type="checkbox"]:checked ~ .checkmark{
 
 .big-rect + .card-body {
   height: 228px;
-}
-
-#symptoms-question {
-  position: absolute;
-  width: 392px;
-  height: 24px;
-  left: 106px;
-  top: 12px;
-
-  font-family: Lato;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 24px;
-  /* identical to box height */
-
-  letter-spacing: 0.1em;
 }
 
 #inner-card-scroll {
@@ -244,13 +261,12 @@ input[type="checkbox"]:checked ~ .checkmark{
 .option-card {
   width: 424px;
   height: 44px;
-  color: black;
-  border: 2px solid #000000;
+  color: #615e71;
+  border: 2px solid #615e71;
   box-sizing: border-box;
   border-radius: 5px;
   padding-left: 10px;
   margin-bottom: 7px;
-
   display: flex;
   align-items: center;
 }
@@ -261,23 +277,20 @@ input[type="checkbox"]:checked ~ .checkmark{
 }
 
 .checkbox-text {
-  width: auto;
-  height: 24px;
   font-family: Lato;
   font-weight: 400;
   font-size: 18px;
-  line-height: 24px;
   letter-spacing: 0.1em;
 }
 
 .btn {
   background: #000000;
+  border: none;
   border-radius: 5px;
   color: white;
   font-family: Lato;
   font-weight: 400;
   font-size: 20px;
-  line-height: 24px;
   letter-spacing: 0.1em;
 }
 
@@ -303,8 +316,12 @@ input[type="checkbox"]:checked ~ .checkmark{
   top: 545px;
 }
 
-.card-2 {
-  height: 96px;
+.btn-back {
+  position: absolute;
+  width: 109px;
+  height: 44px;
+  left: 46px;
+  top: 545px;
 }
 
 .card p {
@@ -334,12 +351,15 @@ input[type="checkbox"]:checked ~ .checkmark{
   font-size: 18px;
   outline: none;
   padding-right: 80px;
-  /* identical to box height */
 
   letter-spacing: 0.1em;
   padding-left: 10px;
 
   color: #acacac;
+}
+
+.card-body input[type="text"]:disabled {
+  background-color: rgb(230, 230, 230);
 }
 
 .card-body span {
@@ -354,10 +374,6 @@ input[type="checkbox"]:checked ~ .checkmark{
 
 .test-question-input[type="text"] {
   color: black;
-}
-
-.card-3 {
-  height: 96px;
 }
 
 .small-rect {

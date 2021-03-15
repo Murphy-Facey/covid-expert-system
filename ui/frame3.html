@@ -21,7 +21,7 @@
             <div class="body-container">
                 <div class="green-rectangle show-status">
                     <div id="green-rectangle-text">
-                        You don’t have hypertension. For more info, click here
+                        You don’t have <span>hypotension</span>. For more info, <a href="">click here</a>
                     </div>
                 </div>
                 <div class="card-container">
@@ -30,18 +30,27 @@
                         <div class="card-body">
                             <p>Do you have any of these symptoms?</p>
                             <div id="inner-card-scroll">
-                                <div class="option-card dizzy">
-                                    <input type="checkbox" id="dizzy" class="checkbox-square" name="dizzy">
+                                <div class="option-card">
+                                    <div class="custom">
+                                        <input type="checkbox" id="dizzy" class="checkbox-square" name="dizzy">
+                                        <div class="custom-checkbox"></div>
+                                    </div>
                                     <label for="dizzy" class="checkbox-text"> Dizziness</label>
                                 </div>
 
-                                <div class="option-card blurry">
-                                    <input type="checkbox" id="blurry" class="checkbox-square" name="blurry">
+                                <div class="option-card">
+                                    <div class="custom">
+                                        <input type="checkbox" id="blurry" class="checkbox-square" name="blurry">
+                                        <div class="custom-checkbox"></div>
+                                    </div>
                                     <label for="blurry" class="checkbox-text"> Blurry vision</label>
                                 </div>
 
-                                <div class="option-card fainting">
-                                    <input type="checkbox" id="fainting" class="checkbox-square" name="fainting">
+                                <div class="option-card">
+                                    <div class="custom">
+                                        <input type="checkbox" id="fainting" class="checkbox-square" name="fainting">
+                                        <div class="custom-checkbox"></div>
+                                    </div>
                                     <label for="fainting" class="checkbox-text"> Fainting</label>
                                 </div>
                             </div>
@@ -56,7 +65,7 @@
                         <div class="small-rect purple"></div>
                         <div class="card-body">
                             <p>What is your systolic level?</p>
-                            <input type="text" class="test-question-input" placeholder="Enter level here ...">
+                            <input type="text" class="test-question-input" placeholder="Enter level here ..." disabled>
                             <span>mm Hg</span>
                         </div>
                     </div>
@@ -65,13 +74,18 @@
                         <div class="small-rect green"></div>
                         <div class="card-body">
                             <p>What is your diastolic level?</p>
-                            <input type="text" class="test-question-input" placeholder="Enter level here ...">
+                            <input type="text" class="test-question-input" placeholder="Enter level here ..." disabled>
                             <span>mm Hg</span>
                         </div>
                     </div>
                 </div>
 
             </div>
+
+            <button class="btn btn-back" onclick="go_back()">
+                Back
+            </button>
+
             <button class="btn btn-diagnosis">
                 Check diagnosis
             </button>
