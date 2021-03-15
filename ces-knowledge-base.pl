@@ -22,6 +22,17 @@ symptom(severe, short_of_breath).
 symptom(severe, chest_pain).
 symptom(severe, loss_of_speech).
 
+% ------------------------------------------------------
+%        U P D A T E   T H E   S Y M P T O M S
+% ------------------------------------------------------
+add_symptom(Type, Symptom, Message):-
+    (symptom(Type, Symptom) -> Message = 'Symptom was not added'; assert(symptom(Type, Symptom)), Message = 'Symptom was added').
+
+delete_symptom(Type, Symptom, Message):- 
+    (symptom(Type, Symptom) -> retract(symptom(Type, Symptom)), Message = 'Symptom was removed'; Message = 'Symptom was not found').
+
+
+
 get_temperature(FahrTemp, CelcTemp):-
     % not going to included the question because 
     % it is handled by the UI

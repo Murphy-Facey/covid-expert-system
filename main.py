@@ -4,7 +4,6 @@ from pyswip import Prolog
 prolog = Prolog()
 prolog.consult('ces-knowledge-base.pl')
 
-
 eel.init('ui')
 
 # GLOBAL VARIABLES 
@@ -20,6 +19,11 @@ def get_symptoms(type):
     return extract_results(symptoms_query)
 
 @eel.expose
+def get_types():
+    type_query = list(prolog.query('symptom(X, _).'))
+    return extract_results(type_query)
+
+@eel.expose
 def have_hypotension(symptoms):
     hypotension = list(prolog.query(f'low_blood_pressure({symptom}, X).'))
     return extract_results(hypotension)
@@ -29,8 +33,14 @@ def check_level(levels):
     pass
 
 @eel.expose
-def update_symptoms(symptom):
-    pass
+def update_symptoms(type, symptom):
+    update_symptom_query = list(prolog.query(f'add_symptom({type}, {symptom}, X).'))
+    return extract_results(update_symptom_query)
+
+@eel.expose
+def remove_symptom(type, symptom):
+    remove_symptom_query = list(prolog.query(f'delete_symptom({type}, {symptom}, X).'))
+    return extract_results(remove_symptom_query)
 
 @eel.expose
 def have_covid(mild_symptoms, severe_symptoms, temperature):
