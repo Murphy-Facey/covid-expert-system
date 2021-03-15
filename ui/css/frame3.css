@@ -151,6 +151,10 @@ input[type="checkbox"]:checked + .custom-checkbox {
   color: #1c5712;
 }
 
+a:hover{
+  cursor: pointer;
+}
+
 @keyframes show-status {
   0% {
     height: 0px;
@@ -185,6 +189,11 @@ input[type="checkbox"]:checked + .custom-checkbox {
   animation-iteration-count: 1;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
+}
+
+.status-red{
+  background-color: red;
+  border: 2px solid crimson;
 }
 
 .show-status > #green-rectangle-text {
@@ -358,9 +367,9 @@ input[type="checkbox"]:checked + .custom-checkbox {
   color: #acacac;
 }
 
-.card-body input[type="text"]:disabled {
+/* .card-body input[type="text"]:disabled {
   background-color: rgb(230, 230, 230);
-}
+} */
 
 .card-body span {
   position: absolute;

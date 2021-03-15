@@ -19,9 +19,10 @@
                 EXPERT SYSTEM
             </div>
             <div class="body-container">
-                <div class="green-rectangle show-status">
+                <div class="green-rectangle hide-status">
                     <div id="green-rectangle-text">
-                        You don’t have <span>hypotension</span>. For more info, <a href="">click here</a>
+                        You <span id="green-rectangle-span"> don’t </span> have <span>hypotension</span>. For more info,
+                        <a onclick="more_hypotension_info()">click here</a>
                     </div>
                 </div>
                 <div class="card-container">
@@ -30,32 +31,9 @@
                         <div class="card-body">
                             <p>Do you have any of these symptoms?</p>
                             <div id="inner-card-scroll">
-                                <div class="option-card">
-                                    <div class="custom">
-                                        <input type="checkbox" id="dizzy" class="checkbox-square" name="dizzy">
-                                        <div class="custom-checkbox"></div>
-                                    </div>
-                                    <label for="dizzy" class="checkbox-text"> Dizziness</label>
-                                </div>
-
-                                <div class="option-card">
-                                    <div class="custom">
-                                        <input type="checkbox" id="blurry" class="checkbox-square" name="blurry">
-                                        <div class="custom-checkbox"></div>
-                                    </div>
-                                    <label for="blurry" class="checkbox-text"> Blurry vision</label>
-                                </div>
-
-                                <div class="option-card">
-                                    <div class="custom">
-                                        <input type="checkbox" id="fainting" class="checkbox-square" name="fainting">
-                                        <div class="custom-checkbox"></div>
-                                    </div>
-                                    <label for="fainting" class="checkbox-text"> Fainting</label>
-                                </div>
                             </div>
 
-                            <button class="btn btn-submit">
+                            <button class="btn btn-submit" onclick="submit_symptoms()">
                                 Submit symptom(s)
                             </button>
                         </div>
@@ -65,7 +43,8 @@
                         <div class="small-rect purple"></div>
                         <div class="card-body">
                             <p>What is your systolic level?</p>
-                            <input type="text" class="test-question-input" placeholder="Enter level here ..." disabled>
+                            <input id="user_systolic" type="text" class="test-question-input"
+                                placeholder="Enter level here ...">
                             <span>mm Hg</span>
                         </div>
                     </div>
@@ -74,7 +53,8 @@
                         <div class="small-rect green"></div>
                         <div class="card-body">
                             <p>What is your diastolic level?</p>
-                            <input type="text" class="test-question-input" placeholder="Enter level here ..." disabled>
+                            <input id="user_diastolic" type="text" class="test-question-input"
+                                placeholder="Enter level here ...">
                             <span>mm Hg</span>
                         </div>
                     </div>
@@ -86,7 +66,7 @@
                 Back
             </button>
 
-            <button class="btn btn-diagnosis">
+            <button class="btn btn-diagnosis" onclick="check_diagnosis()">
                 Check diagnosis
             </button>
 
@@ -115,7 +95,7 @@
         </div>
     </div>
     <script src="/eel.js"></script>
-    <script src="js/hypotension.js"></script>
+    <script src="js/frame3.js"></script>
 </body>
 
 </html>
