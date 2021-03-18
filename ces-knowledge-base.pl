@@ -22,6 +22,9 @@ symptom(severe, short_of_breath).
 symptom(severe, chest_pain).
 symptom(severe, loss_of_speech).
 
+get_other_symptoms(Values):-
+    symptom(X, Values), X \= low_blood_pressure.
+
 % ------------------------------------------------------
 %        U P D A T E   T H E   S Y M P T O M S
 % ------------------------------------------------------
