@@ -56,6 +56,13 @@ def remove_symptom(type, symptom):
 
 
 @eel.expose
+def get_other_symptoms():
+    get_symptom_query = list(prolog.query(
+        f'get_other_symptoms(X).'))
+    return extract_results(get_symptom_query)
+
+
+@eel.expose
 def have_covid(mild_symptoms, severe_symptoms, temperature):
     pass
 
