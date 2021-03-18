@@ -1,9 +1,11 @@
 function get_started() {
-    document.location.href = "http://localhost:8000/frame3.html";
+  document.location.href = "http://localhost:8000/main.html";
 }
 
 function update_symptoms() {
-    document.querySelector('.container').innerHTML += `<div class="update-container">
+  document.querySelector(
+    ".container"
+  ).innerHTML += `<div class="update-container">
         <div class="symptom-top">
             <input type="text" placeholder="Enter symptom here ..." class="symp"/>
             <div class="custom-select">
@@ -28,60 +30,64 @@ function update_symptoms() {
         </div>
     </div>
     `;
-    eel.get_types()(add_types);
+  eel.get_types()(add_types);
 }
 
 function on_select(name) {
-    console.log(document.querySelector(`.select-ul .${name}`).parentElement);
-    if(name == 'hypotension') {
-        eel.get_symptoms('low_blood_pressure')(set_symptoms);
-    } else {
-        eel.get_symptoms(name)(set_symptoms);
-    }
-    document.querySelector('.default-option li').innerHTML = document.querySelector(`.select-ul .${name}`).parentElement.innerHTML;
-    document.querySelector('.custom-select').classList.remove('active');
+  console.log(document.querySelector(`.select-ul .${name}`).parentElement);
+  if (name == "hypotension") {
+    eel.get_symptoms("low_blood_pressure")(set_symptoms);
+  } else {
+    eel.get_symptoms(name)(set_symptoms);
+  }
+  document.querySelector(
+    ".default-option li"
+  ).innerHTML = document.querySelector(
+    `.select-ul .${name}`
+  ).parentElement.innerHTML;
+  document.querySelector(".custom-select").classList.remove("active");
 }
 
 function show_options() {
-    document.querySelector('.custom-select').classList.toggle('active');
+  document.querySelector(".custom-select").classList.toggle("active");
 }
 
 function add_types(types) {
-    let default_option = document.querySelector('.default-option');
-    let other_option = document.querySelector('.select-ul');
-    types = uniq_fast(types);
-    types[types.indexOf('low_blood_pressure')] = 'hypotension';
-    
-    default_option.innerHTML = `<li>
+  let default_option = document.querySelector(".default-option");
+  let other_option = document.querySelector(".select-ul");
+  types = uniq_fast(types);
+  types[types.indexOf("low_blood_pressure")] = "hypotension";
+
+  default_option.innerHTML = `<li>
             <div class="option ${types[0]}">
                 <p>${types[0]}</p>
             </div>
         </li>
     `;
 
-    for(var item of types) {
-        other_option.innerHTML += `
+  for (var item of types) {
+    other_option.innerHTML += `
         <li onclick="on_select('${item}')">
             <div class="option ${item}">
                 <p>${item}</p>
             </div>  
         </li>
         `;
-    }
+  }
 
-    eel.get_symptoms('low_blood_pressure')(set_symptoms);
+  eel.get_symptoms("low_blood_pressure")(set_symptoms);
 }
 
 function set_symptoms(symptoms) {
-    let symptoms_list = document.querySelector('.symptom-body');
-    let type = document.querySelector('.default-option .option').innerText;
-    
-    console.log(symptoms);
-    
-    symptoms_list.innerHTML = "";
-    
-    for(var item of symptoms) {
-        symptoms_list.innerHTML += `
+  let symptoms_list = document.querySelector(".symptom-body");
+  let type = document.querySelector(".default-option .option").innerText;
+
+  console.log(symptoms);
+
+  symptoms_list.innerHTML = "";
+
+  for (var item of symptoms) {
+    symptoms_list.innerHTML += `
         <div class="symptom ${item}">
             <p>Type: <span>${type}</span><p>
             <p>Symptom: <span>${item}</span></p>
@@ -93,45 +99,45 @@ function set_symptoms(symptoms) {
             </svg>
         </div>
         `;
-    }
+  }
 }
 
 function uniq_fast(array) {
-    var seen = {};
-    var out = [];
-    var len = array.length;
-    var j = 0;
-    for(var i = 0; i < len; i++) {
-         var item = array[i];
-         if(seen[item] !== 1) {
-               seen[item] = 1;
-               out[j++] = item;
-         }
+  var seen = {};
+  var out = [];
+  var len = array.length;
+  var j = 0;
+  for (var i = 0; i < len; i++) {
+    var item = array[i];
+    if (seen[item] !== 1) {
+      seen[item] = 1;
+      out[j++] = item;
     }
-    return out;
+  }
+  return out;
 }
 
 function close_container() {
-    var child = document.querySelector('.update-container'); 
-    document.querySelector('.container').removeChild(child);
+  var child = document.querySelector(".update-container");
+  document.querySelector(".container").removeChild(child);
 }
 
 function add_symptom() {
-    var symp = document.querySelector('.symp');
-    let type = document.querySelector('.default-option .option').innerText;
-    
-    if(type == 'hypotension') {
-        type = 'low_blood_pressure';
+  var symp = document.querySelector(".symp");
+  let type = document.querySelector(".default-option .option").innerText;
+
+  if (type == "hypotension") {
+    type = "low_blood_pressure";
+  }
+
+  if (symp.value !== "") {
+    eel.update_symptoms(type, symp.value);
+
+    if (type == "low_blood_pressure") {
+      type = "hypotension";
     }
-    
-    if(symp.value !== '') {
-        eel.update_symptoms(type, symp.value);
 
-        if(type == 'low_blood_pressure') {
-            type = 'hypotension';
-        }
-
-        document.querySelector('.symptom-body').innerHTML += `
+    document.querySelector(".symptom-body").innerHTML += `
         <div class="symptom ${symp.value}">
             <p>Type: <span>${type}</span><p>
             <p>Symptom: <span>${symp.value}</span></p>
@@ -143,20 +149,20 @@ function add_symptom() {
             </svg>
         </div>
         `;
-        
-        symp.value = '';
-    }
+
+    symp.value = "";
+  }
 }
 
 function remove_symptom(symptom) {
-    let type = document.querySelector('.default-option .option').innerText;
-    var child = document.querySelector(`.${symptom}`);
-    console.log(child)
-    
-    if(type == 'hypotension') {
-        type = 'low_blood_pressure';
-    }
-    
-    document.querySelector('.symptom-body').removeChild(child);
-    eel.remove_symptom(type, symptom);
+  let type = document.querySelector(".default-option .option").innerText;
+  var child = document.querySelector(`.${symptom}`);
+  console.log(child);
+
+  if (type == "hypotension") {
+    type = "low_blood_pressure";
+  }
+
+  document.querySelector(".symptom-body").removeChild(child);
+  eel.remove_symptom(type, symptom);
 }
