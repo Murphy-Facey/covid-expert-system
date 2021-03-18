@@ -7,94 +7,59 @@
     <title>Covid System</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
-    <!-- <script src='main.js'></script> -->
 </head>
 
 <body>
     <div id='container'>
         <div class="left-side">
-            <div class="covidia-text">
-                COVIDIA
-            </div>
-            <div class="expert-text">
-                EXPERT SYSTEM
-            </div>
-            <div class="answer-text">
-                Answer the following questions
+            <div class="header-text">
+                <p> COVIDIA</p>
+                <p>EXPERT SYSTEM</p>
             </div>
 
-            <div class="card card-one">
+            <div class="card card-1">
                 <div class="avatar-rectangle thermo-background">
                     <img src="./images/thermometer.png" class="avatar-image" alt="Thermometer">
                 </div>
-                <div class="question-text">
-                    What is your temperature?
-                </div>
-                <div class="option-box">
-                    <div class="degree-text">
-                        <span id="userTemp"> 50 </span>
-                        <span>&#176;C</span>
+
+                <div class="card-1-body">
+                    <p> What is your temperature?</p>
+                    <div class="slider-container">
+                        <div class="degree-text-container">
+                            <div class="degree-text">
+                                <span id="userTemp"> 50 </span>
+                                <span>&#176;C</span>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="range" min="20" max="100" class="slider" id="tempRange" />
+                        </div>
                     </div>
                 </div>
-
-                <input type="range" min="20" max="100" value="50" id="tempRange">
             </div>
 
-            <div class="card card-two">
-                <div class="avatar-rectangle dizzy-background">
-                    <img src="./images/dizziness.png" class="avatar-image" alt="Dizziness">
-                </div>
-                <div class="question-text">
-                    Are you feeling dizzy?
+            <div class="card card-2">
+                <div class="tall-rectangle">
                 </div>
 
-                <div class="flex-container">
-                    <button class="btn options" type="button">
-                        Yes
-                    </button>
-                    <button class="btn options" type="button">
-                        No
-                    </button>
+                <div class="option-container">
+                    <p> Do you have any of these symptoms?</p>
+                    <div class="options">
+                        <!-- <div class="checkbox-container">
+                            <input type="checkbox" id='${symptom}' class="checkbox-square" name='${symptom}'>
+                            <label for='${symptom}' class="checkbox-text"> ${symptom}</label>
+                        </div> -->
+                    </div>
                 </div>
             </div>
+            <div class="buttons-container">
+                <button class="btn btn-back">
+                    Back
+                </button>
 
-            <div class="card card-three">
-                <div class="avatar-rectangle glasses-background">
-                    <img src="./images/eyeglasses.png" class="avatar-image" alt="Glasses">
-                </div>
-                <div class="question-text">
-                    Are you experiencing blurry vision?
-                </div>
-
-                <div class="flex-container">
-                    <button class="btn options" type="button">
-                        Yes
-                    </button>
-                    <button class="btn options" type="button">
-                        No
-                    </button>
-                </div>
-            </div>
-
-            <div class="card card-four">
-                <div class="avatar-rectangle plane-background">
-                    <img src="./images/airplane.png" class="avatar-image" alt="Plane">
-                </div>
-                <div class="question-text">
-                    Have you travelled recently? If yes, where to?
-                </div>
-
-                <div class="flex-container">
-                    <button class="btn options" type="button">
-                        Yes
-                    </button>
-                    <button class="btn options" type="button">
-                        No
-                    </button>
-                    <button class="btn options" type="button">
-                        Select Country
-                    </button>
-                </div>
+                <button class="btn btn-check-diagnosis">
+                    Check diagnosis
+                </button>
             </div>
         </div>
         <div class="right-side">
@@ -119,13 +84,8 @@
             <img src="./images/dots.png" alt="Dots" id="dots">
         </div>
     </div>
-
-    <script>
-        const tempRange = document.getElementById("tempRange"); let userTemp = document.getElementById('userTemp');
-        tempRange.oninput = () => {
-            userTemp.innerHTML = tempRange.value;
-        }
-    </script>
+    <script src="/eel.js"></script>
+    <script src='js/main.js'></script>
 </body>
 
 </html>
