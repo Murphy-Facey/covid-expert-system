@@ -9,8 +9,9 @@ function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 920,
-    height: 646,
+    height: 626,
     resizable: false,
+
     webPreferences: {
       nodeIntegration: true
     }
@@ -18,6 +19,7 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadURL('http://localhost:8000/index.html');
+  mainWindow.setMenuBarVisibility(false);
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()

@@ -1,7 +1,5 @@
 window.onload = function () {
   eel.get_symptoms("low_blood_pressure")(add_symptoms);
-  document.querySelector(".card-2").style.display = "none";
-  document.querySelector(".card-3").style.display = "none";
 };
 
 function add_symptoms(symptoms) {
@@ -18,10 +16,6 @@ function add_symptoms(symptoms) {
     </div>
     `;
   });
-}
-
-function go_back() {
-  document.location.href = "http://localhost:8000/index.html";
 }
 
 function toggle_hypotension_message(option) {
@@ -74,4 +68,12 @@ function more_hypotension_info() {
   window.open(
     "https://www.webmd.com/heart/understanding-low-blood-pressure-basics#:~:text=Hypotension%20is%20the%20medical%20term,less%20than%2090%2F60).&text=A%20blood%20pressure%20reading%20appears,and%20fills%20them%20with%20blood."
   );
+}
+
+function go_back() {
+  document.location.href = "http://localhost:8000/index.html";
+}
+
+function next_page() {
+  document.location.href = "http://localhost:8000/main.html";
 }

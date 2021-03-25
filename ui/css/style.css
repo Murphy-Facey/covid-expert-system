@@ -282,7 +282,6 @@ body {
 .symptom-body {
   width: calc(100% - 20px);
   height: 193px;
-  /* background-color: chartreuse; */
   overflow-x: hidden;
   overflow-y: auto;
   margin: 25px 10px 0 0;

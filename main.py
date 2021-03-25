@@ -1,6 +1,11 @@
 import eel
 from pyswip import Prolog
 
+new_file = []
+
+with open("ces-knowledge-base.pl", "r") as f:
+    new_file = f.readlines()
+
 prolog = Prolog()
 prolog.consult('ces-knowledge-base.pl')
 
@@ -14,7 +19,6 @@ levels = [0, 0]
 temperature = 0
 
 # FUNCTIONS
-
 
 @eel.expose
 def get_symptoms(type):
@@ -45,6 +49,7 @@ def check_level(di_level, sy_level):
 def update_symptoms(type, symptom):
     update_symptom_query = list(prolog.query(
         f'add_symptom({type}, {symptom}, X).'))
+    update_symptom_kb(type, symptom)
     return extract_results(update_symptom_query)
 
 
@@ -64,10 +69,23 @@ def get_other_symptoms():
 
 @eel.expose
 def have_covid(mild_symptoms, severe_symptoms, temperature):
-    pass
+    have_covid_query = list(prolog.query(f'covid({mild_symptoms}, {severe_symptoms}, {temperature}, X).'))
+    return extract_results(have_covid_query);
+
+@eel.expose
+def update_statistics(diagnosis):
+    get_stats_query = list(prolog.query(f'update({diagnosis}), stats(X, Y, Z).'))
+    stuff = extract_results_2(get_stats_query)
+    update_kb(stuff)
+    return stuff
+
+@eel.expose
+def get_treatments(diagnosis):
+    t = list(prolog.query(f'treatment({diagnosis}, X).'))
+    query = [str(elem) for elem in extract_results(t)[0]] 
+    return query
 
 # REGULAR PYTHON FUNCTIONS
-
 
 def extract_results(query_result):
     result = []
@@ -75,15 +93,29 @@ def extract_results(query_result):
         result.append(item['X'])
     return result
 
+def extract_results_2(query_result):
+    result = []
+    for item in query_result:
+        result.append(item['X'])
+        result.append(item['Y'])
+        result.append(item['Z'])
+    return result
 
-def update_statistics(diagnosis):
-    prolog.query(f'update({diagnosis}).')
-    # call javascript function here
+def update_symptom_kb(type, symptom):
+    global new_file
+    line_number = 11
+    if type == 'mild':
+        line_number = new_file.index('symptom(mild, fatigue).\n')
+    if type == 'severe':
+        line_number = new_file.index('symptom(severe, short_of_breath).\n')
 
+    new_file.insert(line_number, f'symptom({type}, {symptom}).\n')
+    print(new_file[line_number])
 
-def get_treatments(diagnosis):
-    t = list(prolog.query(f'treatment({diagnosis}).'))
-    # call javascript function here
-
+def update_kb(value):
+    global new_file
+    new_file[8] = f'stats({value[0]}, {value[1]}, {value[2]}).\n'
+    with open("ces-knowledge-base.pl", "w") as f:
+        f.writelines(new_file)
 
 eel.start('index.html', mode='electron')

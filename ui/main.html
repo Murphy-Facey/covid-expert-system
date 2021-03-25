@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -15,55 +14,52 @@
             <div class="header-text">
                 <p> COVIDIA</p>
                 <p>EXPERT SYSTEM</p>
-            </div>
-
-            <div class="card card-1">
-                <div class="avatar-rectangle thermo-background">
-                    <img src="./images/thermometer.png" class="avatar-image" alt="Thermometer">
+            </div> 
+            <div class="card-container">
+                <div class="card card-0">
+                    <div class="rect"></div>
+                    <div class="card-body">
+                        <p>What is your name?</p>
+                        <input id="user-name" type="text" class="test-question-input"
+                            placeholder="Enter your name here ..." />
+                    </div>
                 </div>
 
-                <div class="card-1-body">
-                    <p> What is your temperature?</p>
-                    <div class="slider-container">
-                        <div class="degree-text-container">
-                            <div class="degree-text">
-                                <span id="userTemp"> 50 </span>
-                                <span>&#176;C</span>
+                <div class="card card-1">
+                    <div class="rect thermo-background">
+                        <img src="./images/thermometer.png" class="avatar-image" alt="Thermometer">
+                    </div>
+                    <div class="card-body">
+                        <p> What is your temperature?</p>
+                        <div>
+                            <p class="degree-text"><span id="userTemp">60</span>&#176;C</p>
+                            <div class="slide">
+                                <input type="range" min="20" max="100" class="slider" id="tempRange" />
                             </div>
                         </div>
-                        <div>
-                            <input type="range" min="20" max="100" class="slider" id="tempRange" />
+                    </div>
+                </div>
+                <div class="card card-2">
+                    <div class="card-1-body"></div> 
+                    <div class="rect"></div>
+                    <div class="option-container">
+                        <p> Do you have any of these symptoms?</p>
+                        <div class="options">
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="card card-2">
-                <div class="tall-rectangle">
-                </div>
-
-                <div class="option-container">
-                    <p> Do you have any of these symptoms?</p>
-                    <div class="options">
-                        <!-- <div class="checkbox-container">
-                            <input type="checkbox" id='${symptom}' class="checkbox-square" name='${symptom}'>
-                            <label for='${symptom}' class="checkbox-text"> ${symptom}</label>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
+            
             <div class="buttons-container">
-                <button class="btn btn-back">
+                <button class="btn btn-back" onclick="go_back()">
                     Back
                 </button>
-
-                <button class="btn btn-check-diagnosis">
+                <button class="btn btn-check-diagnosis" onclick="check_diagnosis()">
                     Check diagnosis
                 </button>
             </div>
         </div>
         <div class="right-side">
-            <!-- <div class="protect-text-container"> -->
             <div class="protect-text">
                 HOW TO PROTECT YOURSELF
             </div>

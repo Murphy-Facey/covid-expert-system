@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/diagnosis.css">
+    <script src="/eel.js"></script>
+    <script src="js/diagnosis.js"></script>
+    <title>Covidia</title>
+</head>
+<body>
+    <div class="left-side">
+        <div class="mild total">
+            <p class="mild-value"></p>
+            <p>of the persons diagnosed have mild symptoms</p>
+        </div>
+        <div class="severe total">
+            <p class="severe-value"></p>
+            <p>of the persons diagnosed have severe symptoms</p>
+        </div>
+        <div class="total">
+            <p class="total-value"></p>
+            <p>persons were diagnosed by Covidia system</p>
+        </div>
+    </div>
+    <div class="right-side">
+        <div class="diagnosis">
+            <p>Based on our diagnosis, <span class="user-name"></span> ...</p> 
+            <h1 class="dia-info"></h1>
+        </div>
+        <div class="treatment">
+            <p>treatment</p>
+            <div>
+                <ul class="treatment-list"></ul>
+            </div>
+        </div>
+        <button class="home" onclick="go_home()">Back to Home</button>
+    </div>
+</body>
+</html>

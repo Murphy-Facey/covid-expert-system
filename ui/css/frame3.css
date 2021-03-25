@@ -66,7 +66,6 @@ input[type="checkbox"]:checked + .custom-checkbox {
 
 .left-side {
   position: absolute;
-  border-top: 1px solid #0000ff;
   height: 100%;
   width: 650px;
 }
@@ -214,7 +213,6 @@ a:hover{
   height: 416px;
 } 
 
-
 .card {
   width: 574px;
   background: #ffffff;
@@ -232,6 +230,7 @@ a:hover{
 .card-2, 
 .card-3 {
   height: 96px;
+  display: none;
 }
 
 .big-rect {
