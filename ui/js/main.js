@@ -16,8 +16,11 @@ function add_mild_symptoms(symptoms) {
     let cleanString = symptom.replace(/_/g, " ");
     cardOptions.innerHTML += `
     <div class="checkbox-container">
-        <input type="checkbox" id='mild' class="checkbox-square" name='${symptom}'>
-        <label for='${symptom}' class="checkbox-text"> ${cleanString}</label>
+      <div class="custom">
+        <input type="checkbox" id="mild" class="checkbox-square" name="${symptom}">
+        <div class="custom-checkbox"></div>
+      </div>
+      <label for='${symptom}' class="checkbox-text"> ${cleanString}</label>
     </div>
     `;
   });
@@ -30,7 +33,10 @@ function add_severe_symptoms(symptoms) {
     let cleanString = symptom.replace(/_/g, " ");
     cardOptions.innerHTML += `
     <div class="checkbox-container">
-        <input type="checkbox" id='severe' class="checkbox-square" name='${symptom}'>
+        <div class="custom">
+          <input type="checkbox" id="severe" class="checkbox-square" name="${symptom}">
+          <div class="custom-checkbox"></div>
+        </div>
         <label for='${symptom}' class="checkbox-text"> ${cleanString}</label>
     </div>
     `;

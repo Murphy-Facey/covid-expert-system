@@ -6,7 +6,7 @@
 % 1st represents the number of persons diagnose
 % 2nd represents the number of persons with mild symptoms
 % 3rd represents the number of persons with severe symptoms
-stats(0,0,0).
+stats(0, 0, 0).
 
 % there are the symptoms related to low blood pressure
 symptom(low_blood_pressure, fainting).

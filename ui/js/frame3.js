@@ -34,10 +34,12 @@ function submit_symptoms() {
     toggle_hypotension_message("hide");
     document.querySelector(".card-2").style.display = "flex";
     document.querySelector(".card-3").style.display = "flex";
+    document.querySelector(".btn-diagnosis").style.opacity = "1";
   } else {
     toggle_hypotension_message("show");
     document.querySelector(".card-2").style.display = "none";
     document.querySelector(".card-3").style.display = "none";
+    document.querySelector(".btn-diagnosis").style.opacity = "0";
   }
 }
 
@@ -53,11 +55,16 @@ function check_diagnosis() {
 function have_hypotension(value) {
   var textBox = document.getElementById("green-rectangle-span");
   var green_box = document.querySelector(".green-rectangle");
+
+  var main_container = document.body;
+
+
+
   if (value[0]) {
-    green_box.classList.add("status-red");
+    main_container.setAttribute("data-theme", "status-red");
   } else {
-    green_box.classList.contains("status-red")
-      ? green_box.classList.remove("status-red")
+    main_container.getAttribute("data-theme") === "status-red"
+      ? main_container.setAttribute("data-theme", "")
       : null;
   }
   textBox.innerText = value[0] == 1 ? "may" : `don't`;

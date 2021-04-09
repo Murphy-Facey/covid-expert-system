@@ -135,18 +135,29 @@ ul li {
   content: "";
   position: absolute;
   top: 0px;
-  left: -10px;
+  left: -2px;
   height: 100%;
-  width: 7px;
-  background-color: chartreuse;
-  z-index: 1;
+  width: 5px;
+  border-radius: 5px;
+  background-color: crimson;
+  /* z-index: 1; */
 }
 
 .home {
   width: 50%;
-  height: 30px;
+  height: 46px;
   font-size: 20px;
   font-family: "Montserrat-Regular";
   margin: 0 auto;
+  outline: none;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 5px;
   margin-top: 20px;
 }
+
+.home:hover {
+  background: rgb(71, 71, 71);
+}
+

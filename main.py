@@ -118,4 +118,4 @@ def update_kb(value):
     with open("ces-knowledge-base.pl", "w") as f:
         f.writelines(new_file)
 
-eel.start('index.html', mode='electron')
+eel.start('index.html', mode="electron")#, cmdline_args=['win-ia32-unpacked/covid-expert-system.exe', '.'])

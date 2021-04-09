@@ -1,5 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans:wght@400;700;800&display=swap");
 
+:root {
+  --warning-inr-clr: #96e466;
+  --warning-bdr-clr: #3f9220;
+  --warning-text-clr: #1c5712;
+}
+
+[data-theme="status-red"] {
+  --warning-inr-clr: #ffbb00;
+  --warning-bdr-clr: #dc9d14;
+  --warning-text-clr: #5c4c06;
+}
+
 *,
 *::before,
 *::after {
@@ -9,6 +21,12 @@
 
 body {
   overflow: hidden;
+}
+
+.logo-pic {
+  position: absolute;
+  top: 27px;
+  left: 27px;
 }
 
 input[type="checkbox"] {
@@ -33,7 +51,6 @@ input[type="checkbox"] {
   top: 50%;
   left: 0%;
   transform: translateY(-50%);
-  /* margin: 1px; */
   border: 2px solid #ec1f52;
   border-radius: 2px;
   box-sizing: border-box;
@@ -107,6 +124,7 @@ input[type="checkbox"]:checked + .custom-checkbox {
   font-weight: normal;
   font-size: 24px;
   line-height: 29px;
+  user-select: none;
 }
 
 #expert-text {
@@ -121,6 +139,7 @@ input[type="checkbox"]:checked + .custom-checkbox {
   font-weight: 800;
   font-size: 16px;
   line-height: 22px;
+  user-select: none;
 }
 
 .green-rectangle {
@@ -147,14 +166,14 @@ input[type="checkbox"]:checked + .custom-checkbox {
   font-size: 20px;
   line-height: 24px;
   letter-spacing: 0.02em;
-  color: #1c5712;
+  color: var(--warning-text-clr);
 }
 
 a:hover{
   cursor: pointer;
 }
 
-@keyframes show-status {
+@keyframes show-status-green {
   0% {
     height: 0px;
     background-color: transparent;
@@ -163,14 +182,14 @@ a:hover{
 
   50% {
     height: 53px;
-    background-color: #96e466;
+    background-color: var(--warning-inr-clr);
     border-color: transparent;
   }
 
   100% {
     height: 53px;
-    background-color: #96e466;
-    border-color:#3f9220;
+    background-color: var(--warning-inr-clr);
+    border-color: var(--warning-bdr-clr);
   }
 }
 
@@ -182,17 +201,12 @@ a:hover{
 
 .show-status {
   height: 53px;
-  background-color: #96e466;
-  border: 2px solid #3f9220;
+  background-color: var(--warning-inr-clr);
+  border: 2px solid var(--warning-bdr-clr);
   animation-name: show-status;
   animation-iteration-count: 1;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
-}
-
-.status-red{
-  background-color: red;
-  border: 2px solid crimson;
 }
 
 .show-status > #green-rectangle-text {
@@ -279,6 +293,19 @@ a:hover{
   align-items: center;
 }
 
+.more-info {
+  text-decoration: underline;
+}
+
+.more-info:hover {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 0 3px;
+}
+
+
 .checkbox-square {
   width: 20px;
   margin-right: 15px;
@@ -294,12 +321,18 @@ a:hover{
 .btn {
   background: #000000;
   border: none;
+  outline: none;
   border-radius: 5px;
   color: white;
   font-family: Lato;
   font-weight: 400;
   font-size: 20px;
   letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: rgb(71, 71, 71);
 }
 
 .btn-submit {
@@ -312,8 +345,9 @@ a:hover{
   position: absolute;
   width: 246px;
   height: 44px;
-  left: 235px;
+  left: 222px;
   top: 545px;
+  opacity: 0;
 }
 
 .btn-next {
@@ -328,7 +362,7 @@ a:hover{
   position: absolute;
   width: 109px;
   height: 44px;
-  left: 46px;
+  left: 39px;
   top: 545px;
 }
 
@@ -501,3 +535,5 @@ a:hover{
   left: 97px;
   bottom: 107px;
 }
+
+

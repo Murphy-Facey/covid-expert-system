@@ -8,7 +8,7 @@ window.onload = function () {
 };
 
 function update(value) {
-    var dia_info = "doesn't have any COVID-19 symptoms";
+    var dia_info = "doesn't suffer from COVID-19";
     
     if(value[0] == "mild") {
         dia_info = "have mild symptoms of COVID-19";
