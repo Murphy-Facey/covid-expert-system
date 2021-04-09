@@ -22,6 +22,7 @@ symptom(severe, short_of_breath).
 symptom(severe, chest_pain).
 symptom(severe, loss_of_speech).
 
+
 get_other_symptoms(Values):-
     symptom(X, Values), X \= low_blood_pressure.
 
@@ -33,9 +34,7 @@ add_symptom(Type, Symptom, Message):-
 
 delete_symptom(Type, Symptom, Message):- 
     (symptom(Type, Symptom) -> retract(symptom(Type, Symptom)), Message = 'Symptom was removed'; Message = 'Symptom was not found').
-
-
-
+    
 get_temperature(FahrTemp, CelcTemp):-
     % not going to included the question because 
     % it is handled by the UI
@@ -96,6 +95,7 @@ add_low_blood_pressure_symptom(Symptom, Message):-
 % ------------------------------------------------------
 %  CHECKS FOR DIASTOLIC AND SYSTOLIC LEVELS         
 % ------------------------------------------------------
+
 check_dia_sys_level(Di_level, Sy_level, Effect):-
     check_diastolic_reading(DiaEffect, Di_level),
     check_systolic_reading(SysEffect, Sy_level),
