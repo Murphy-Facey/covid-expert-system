@@ -1,0 +1,163 @@
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url("../fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url("../fonts/Montserrat-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat-Black";
+  src: url("../fonts/Montserrat-Black.ttf");
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/Lato-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Lato-Black";
+  src: url("../fonts/Lato/Lato-Black.ttf");
+}
+
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  width: 920px;
+  height: 600px;
+  overflow: hidden;
+  display: flex;
+}
+
+.left-side {
+  width: 270px;
+  background: white;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.total p {
+  text-align: center;
+}
+
+.total p:first-child {
+  font-size: 60px;
+  font-family: "Montserrat-Black";
+  font-weight: 900;
+}
+
+.total p:last-child {
+  font-size: 20px;
+  font-family: "Lato";
+  position: relative;
+  top: -5px;
+}
+
+.right-side {
+  width: 650px;
+  height: 100%;
+  background: #f3f3f3;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.diagnosis p {
+  font-size: 18px;
+  font-family: "Montserrat-Regular";
+}
+
+.diagnosis h1 {
+  font-size: 28.5px;
+  font-family: "Montserrat-Black";
+}
+
+.treatment {
+  width: 95%;
+  height: 65%;
+  margin-top: 5%;
+  border-radius: 15px;
+  border: 3px solid chartreuse;
+  position: relative;
+}
+
+.treatment > div {
+  height: 100%;
+}
+
+.treatment p:first-child {
+  font-size: 18px;
+  position: absolute;
+  top: -15px;
+  background: #f3f3f3;
+  padding: 0 10px;
+  left: 50%;
+  text-transform: uppercase;
+  font-family: "Montserrat-Bold";
+  transform: translateX(-50%);
+}
+
+.treatment ul {
+  list-style: none;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 30px;
+  height: calc(100% - 35px);
+  font-family: "Montserrat-Regular";
+  overflow-y: auto;
+}
+
+ul li {
+  position: relative;
+  padding-left: 15px;
+}
+
+.treatment ul * + li {
+  margin-top: 20px;
+}
+
+.treatment ul li::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: -2px;
+  height: 100%;
+  width: 5px;
+  border-radius: 5px;
+  background-color: crimson;
+  /* z-index: 1; */
+}
+
+.home {
+  width: 50%;
+  height: 46px;
+  font-size: 20px;
+  font-family: "Montserrat-Regular";
+  margin: 0 auto;
+  outline: none;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.home:hover {
+  background: rgb(71, 71, 71);
+}
+

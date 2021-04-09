@@ -1,0 +1,382 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans:wght@400;700;800&display=swap");
+
+:root {
+  --light-grey: #f4f4f6;
+  --light-blue: #00ccf5;
+  --dark-blue: #615e71;
+  --mid-grey: #dddde3;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+}
+
+.bkg-img {
+  pointer-events: none;
+}
+
+.bkg-img img:nth-child(1) {
+  position: absolute;
+  top: 0px;
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+.bkg-img img:nth-child(2) {
+  position: absolute;
+  top: 68px;
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+body {
+  overflow: hidden;
+}
+
+.container,
+.question-container {
+  width: 920px;
+  height: 600px;
+  background-color: var(--light-grey);
+  position: relative;
+}
+
+.body-heading {
+  position: relative;
+  top: 151px;
+  left: 50px;
+}
+
+.body-heading h3 {
+  position: relative;
+  top: 10px;
+  left: 7px;
+  font-family: "Open Sans";
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--dark-blue);
+}
+
+.body-heading h1 span:nth-child(1) {
+  color: var(--light-blue);
+  font-size: 44px;
+  font-family: "Open Sans";
+  font-weight: 900;
+}
+
+.body-heading h1 span:nth-child(2) {
+  color: var(--dark-blue);
+  font-size: 44px;
+  font-family: "Lato";
+}
+
+.info-section {
+  position: absolute;
+  top: 262px;
+  left: 50px;
+  width: 474px;
+  font-family: "Open Sans";
+  font-size: 16px;
+  color: var(--dark-blue);
+}
+
+.btns {
+  position: absolute;
+  top: 398px;
+  left: 50px;
+}
+
+.btns button {
+  height: 43px;
+  padding: 0 30px;
+  outline: none;
+  cursor: pointer;
+}
+.btns button:nth-child(1) {
+  background-color: var(--dark-blue);
+  color: var(--light-blue);
+  border-radius: 5px;
+  border: none;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: 15px;
+}
+.btns button:nth-child(2) {
+  background-color: transparent;
+  color: var(--dark-blue);
+  border-radius: 5px;
+  border: 2px solid var(--mid-grey);
+  font-family: "Lato";
+  font-size: 16px;
+  letter-spacing: 1.6px;
+  font-weight: 700;
+}
+
+.question {
+  width: 574px;
+  height: 96px;
+  margin-left: 20px;
+  border-radius: 17px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: white;
+}
+
+.question .icon {
+  width: 76px;
+  height: 72px;
+  background: #dc53df;
+  margin: 0px 10px;
+  border-radius: 13px;
+}
+
+.question .q-item {
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Lato";
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  color: #615e71;
+}
+
+
+/* ----------------------------- */
+
+.update-container {
+  width: 448px;
+  height: 353px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Lato';
+}
+
+.symptom-top,
+.symptom-footer {
+  width: calc(100% - 20px);
+  padding: 0 10px;
+}
+
+.symptom-top {
+  position: relative;
+  height: 77px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  background: radial-gradient(67.25% 143.51% at 51.34% -14.29%, #FFBABF 0%, #BC343E 100%);
+}
+
+.symptom-top > input,
+.symptom-top > div {
+  position: absolute;
+  top: 100%;
+  transform: translateY(-50%);
+}
+
+.symptom-top input {
+  width: 236px;
+  height: 38px;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  background-color: #FFDDDE;
+  font-size: 18px;
+  color: #FF4F5A;
+  letter-spacing: 1px;
+  padding-left: 10px;
+}
+
+.symptom-top input::placeholder {
+  color: #FF4F5A;
+}
+
+.custom-select {
+  width: 162px;
+  height: 38px;
+  right: 10px;  
+  z-index: 1;
+}
+
+.custom-select div {
+  margin-left: 10px;
+  pointer-events: none;
+  color: #FF4F5A;
+  font-size: 18px;
+}
+
+.custom-select .default-option {
+  width: 100%;
+  height: 100%;
+  background-color: #FFDDDE;
+  
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.custom-select .default-option::before {
+  content: "";
+  position: absolute;
+  top: 45%;
+  left: 87%;
+  width: 6px;
+  height: 6px;
+  border: 3px solid #FF4F5A;
+  border-width: 0 0 2px 2px;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.custom-select .select-ul {
+  position: absolute;
+  top: calc(100% + 5px);
+  width: 100%;
+  border-radius: 3px;
+  background-color: #FFDDDE;
+  list-style: none;
+  display: none;
+}
+
+.custom-select.active > .select-ul {
+  display: block;
+}
+
+.select-ul li:first-child {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.select-ul li:last-child {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.select-ul li {
+  padding: 5px 0px;
+}
+
+.select-ul li:hover {
+  background-color: #FF4F5A;
+}
+
+.select-ul li:hover > div {
+  color: white;
+}
+
+.symptom-body {
+  width: calc(100% - 20px);
+  height: 193px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 25px 10px 0 0;
+  padding-left: 10px;
+}
+
+.symptom-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.symptom-body::-webkit-scrollbar-thumb {
+  background-color: #F43664;
+  border-radius: 3px;
+}
+
+.symptom-body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.symptom-body .symptom {
+  width: 410px;
+  height: 60px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 7px 0px;
+  position: relative;
+}
+
+.symptom::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  width: 4px;
+  height: 60%;
+  border-radius: 3px;
+  background-color: #F43664;
+}
+
+.symptom p {
+  margin-left: 15px;
+}
+
+.symptom p:first-child{ 
+  font-size: 14px;
+  color: #F43664;
+}
+
+.symptom p:last-child{
+  font-size: 18px;
+  color: #000000;
+}
+
+.symptom svg {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 50%;
+  left: 90%;
+  font-weight: bold;
+  fill: #FF4F5A;
+  transform: translateY(-50%);
+  padding: 5px;
+}
+
+.symptom svg:hover {
+  background-color: #FFDDDE;
+  border-radius: 3px;
+}
+
+.symptom-footer {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.symptom-footer button {
+  width: 55px;
+  height: 33px;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.symptom-footer button:first-child {
+  background-color: #FFBABF;
+}
+
+.symptom-footer button:last-child {
+  background-color: #BAFFBD;
+}

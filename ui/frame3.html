@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Covidia Expert System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/frame3.css" />
+    <script src="/eel.js"></script>
+    <script src="js/frame3.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <img src="images/Logo.svg" class="logo-pic">
+        <div class="left-side">
+            <div id="covidia-text">COVIDIA</div>
+            <div id="expert-text">EXPERT SYSTEM</div>
+            <div class="body-container">
+                <div class="green-rectangle hide-status">
+                    <div id="green-rectangle-text">
+                        You <span id="green-rectangle-span"> don’t </span> have
+                        <span>hypotension</span>. For more info,
+                        <a onclick="more_hypotension_info()" class="more-info">click here</a>
+                    </div>
+                </div>
+                <div class="card-container">
+                    <div class="card card-1">
+                        <div class="big-rect"></div>
+                        <div class="card-body">
+                            <p>Do you have any of these symptoms?</p>
+                            <div id="inner-card-scroll"></div>
+                            <button class="btn btn-submit" onclick="submit_symptoms()">
+                                Submit symptom(s)
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card card-2">
+                        <div class="small-rect purple"></div>
+                        <div class="card-body">
+                            <p>What is your systolic level?</p>
+                            <input id="user_systolic" type="text" class="test-question-input"
+                                placeholder="Enter level here ..." />
+                            <span>mm Hg</span>
+                        </div>
+                    </div>
+
+                    <div class="card card-3">
+                        <div class="small-rect green"></div>
+                        <div class="card-body">
+                            <p>What is your diastolic level?</p>
+                            <input id="user_diastolic" type="text" class="test-question-input"
+                                placeholder="Enter level here ..." />
+                            <span>mm Hg</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-back" onclick="go_back()">Back</button>
+
+            <button class="btn btn-diagnosis" onclick="check_diagnosis()">
+                Check diagnosis
+            </button>
+
+            <button class="btn btn-next" onclick="next_page()">Next</button>
+        </div>
+        <div class="right-side">
+            <div class="protect-text">HOW TO PROTECT YOURSELF</div>
+
+            <div class="covid-text">FROM COVID-19</div>
+            <img src="./images/shield.png" alt="Shield" id="shield-img" />
+
+            <img src="./images/open_quote.png" alt="Open_Quote" id="open-quote" />
+
+            <div id="remember-text">
+                Remember to socially distance yourself from persons
+            </div>
+
+            <img src="./images/close_quote.png" alt="Close_Quote" id="close-quote" />
+            <img src="./images/dots.png" alt="Dots" id="dots" />
+        </div>
+    </div>
+</body>
+
+</html>

@@ -6,7 +6,7 @@
 % 1st represents the number of persons diagnose
 % 2nd represents the number of persons with mild symptoms
 % 3rd represents the number of persons with severe symptoms
-stats(0,0,0).
+stats(0, 0, 0).
 
 % there are the symptoms related to low blood pressure
 symptom(low_blood_pressure, fainting).
@@ -22,6 +22,19 @@ symptom(severe, short_of_breath).
 symptom(severe, chest_pain).
 symptom(severe, loss_of_speech).
 
+
+get_other_symptoms(Values):-
+    symptom(X, Values), X \= low_blood_pressure.
+
+% ------------------------------------------------------
+%        U P D A T E   T H E   S Y M P T O M S
+% ------------------------------------------------------
+add_symptom(Type, Symptom, Message):-
+    (symptom(Type, Symptom) -> Message = 'Symptom was not added'; assert(symptom(Type, Symptom)), Message = 'Symptom was added').
+
+delete_symptom(Type, Symptom, Message):- 
+    (symptom(Type, Symptom) -> retract(symptom(Type, Symptom)), Message = 'Symptom was removed'; Message = 'Symptom was not found').
+    
 get_temperature(FahrTemp, CelcTemp):-
     % not going to included the question because 
     % it is handled by the UI
@@ -82,25 +95,24 @@ add_low_blood_pressure_symptom(Symptom, Message):-
 % ------------------------------------------------------
 %  CHECKS FOR DIASTOLIC AND SYSTOLIC LEVELS         
 % ------------------------------------------------------
-check_dia_sys_level:-
-    check_diastolic_reading(DiaEffect),
-    check_systolic_reading(SysEffect),
+
+check_dia_sys_level(Di_level, Sy_level, Effect):-
+    check_diastolic_reading(DiaEffect, Di_level),
+    check_systolic_reading(SysEffect, Sy_level),
     ((DiaEffect == 1; SysEffect == 1) -> 
-        write("might have low blood pressure");
-        write("don't have low blood pressure")).
+        Effect is 1;
+        Effect is 0).
 
 % ------------------------------------------------------
 %  CHECKS FOR DIASTOLIC LEVELS         
 % ------------------------------------------------------
-check_diastolic_reading(Effect):-
-    read(Level),
+check_diastolic_reading(Effect, Level):-
     (Level < 60 -> Effect is 1; Effect is 0).
 
 % ------------------------------------------------------
 %  CHECKS FOR SYSTOLIC LEVELS         
 % ------------------------------------------------------
-check_systolic_reading(Effect):-
-    read(Level),
+check_systolic_reading(Effect, Level):-
     (Level < 90 -> Effect is 1; Effect is 0).
 
 

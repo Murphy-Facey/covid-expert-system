@@ -1,0 +1,444 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans:wght@400;700;800&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  background: #e5e5e5;
+  overflow: hidden;
+}
+
+.logo-pic {
+  position: absolute;
+  top: 27px;
+  left: 27px;
+}
+
+.header-text {
+  position: absolute;
+  left: 80px;
+  top: 24px;
+}
+
+.header-text p:nth-of-type(1) {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  color: #615e71;
+  user-select: none;
+}
+
+.header-text p:nth-of-type(2) {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 22px;
+  position: relative;
+  top: -5px;
+  color: #615e71;
+  user-select: none;
+}
+
+/* ---------------------------------------------- */
+
+.card-container {
+  position: absolute;
+  top: 95px;
+  left: 39px;
+  height: 440px;
+  padding-right: 15px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.card-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-body input[type="text"] {
+  position: relative;
+  width: 424px;
+  height: 36px;
+  border: 2px solid #615e71;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: Lato;
+  font-size: 20px;
+  outline: none;
+  padding-right: 80px;
+  letter-spacing: 0.1em;
+  padding-left: 10px;
+  color: #acacac;
+}
+
+.card {
+  width: 574px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+}
+
+.card + .card {
+  margin-top: 20px;
+}
+
+.card:last-child {
+  margin-bottom: 5px;
+}
+
+.card > div {
+  height: 100%;
+}
+
+.card-0,
+.card-1 {
+  height: 96px;
+}
+
+.option-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.rect {
+  width: 76px;
+  border-radius: 13px;
+  background: #f43664;
+  margin-right: 10px;
+
+  display: grid;
+  place-items: center;
+}
+
+.purple {
+  background: #906fca;
+}
+
+.green {
+  background: yellowgreen;
+}
+
+.card-body div {
+  padding: 5px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-body > p {
+  font-family: Lato;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  color: #615e71;
+}
+
+.degree-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0px;
+  color: #0bcdf4;
+  font-family: Lato;
+  font-size: 20px;
+  width: 71px;
+  border: 2px solid #615e71;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+/* this is the styles for the slider */
+.slide {
+  width: 340px;
+  height: 19px;
+  position: relative;
+  margin-left: 15px;
+}
+
+.slider,
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.slider {
+  width: 100%;
+  border-radius: 10px;
+  outline: none;
+  background: transparent;
+  position: relative;
+}
+
+.slide::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 15px);
+  height: 40%;
+  background: linear-gradient(to right, blue, orange);
+}
+
+.slider::-webkit-slider-thumb {
+  width: 40px;
+  height: 17px;
+  background: white;
+  border-width: 2px;
+}
+
+.card-2 {
+  height: 323px;
+  top: 209px;
+  display: flex;
+}
+
+.card-2 p:nth-of-type(1) {
+  height: 22px;
+  font-family: Lato;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  color: #615e71;
+}
+
+.options {
+  overflow-y: auto;
+}
+
+.card-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.card-container::-webkit-scrollbar-track {
+  background-color: #D7D6DA;
+}
+
+.card-container::-webkit-scrollbar-thumb {
+  background-color: #615E71;
+}
+
+/*---------- CHECK BOX ----------*/
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-right: 11px;
+  margin-bottom: 5px;
+  color: #615e71;
+  border: 2px solid #615e71;
+  position: relative;
+}
+
+.checkbox-container label {
+  cursor: pointer;
+  position: relative;
+  left: 10px;
+  display: flex;
+  font-family: Lato;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+}
+
+
+input[type="checkbox"] {
+  opacity: 0;
+  position: relative;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.custom {
+  position: relative;
+  width: 30px;
+  height: 25px;
+}
+
+.custom-checkbox {
+  width: 14px;
+  height: 13px;
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 2px solid #906fca;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+input[type="checkbox"]:checked + .custom-checkbox:after {
+  content: "";
+  position: absolute;
+  top: 1.5px;
+  left: 1px;
+  width: 8px;
+  height: 4px;
+  
+  border: solid white;
+  border-width: 0px 0px 2px 2px;
+  transform: rotateZ(-45deg);
+}
+
+input[type="checkbox"]:checked + .custom-checkbox {
+  background-color: #906fca;
+}
+
+.buttons-container {
+  width: 599px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  bottom: 16px;
+  position: absolute;
+  left: 39px;
+  top: 545px;
+}
+
+.btn {
+  background: #000000;
+  border: none;
+  height: 44px;
+  border-radius: 5px;
+  color: white;
+  font-family: Lato;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.btn-back {
+  width: 109px;  
+}
+
+.btn-check-diagnosis {
+  width: 246px;
+}
+
+
+
+/* ====================================================================== 
+                              RIGHT SIDE
+   ======================================================================*/
+
+.right-side {
+  position: absolute;
+  width: 270px;
+  height: 600px;
+  left: 650px;
+  top: 0px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+}
+
+.protect-text {
+  position: absolute;
+  width: 242px;
+  height: 25px;
+  left: 14px;
+  top: 75px;
+  background: #f43664;
+  border-radius: 3px;
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+
+  color: #e0f9f9;
+}
+
+.covid-text {
+  position: absolute;
+  width: 150px;
+  height: 25px;
+  left: 60px;
+  top: 103px;
+
+  background: #68a662;
+  border-radius: 3px;
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 22px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #e0f9f9;
+}
+
+#shield-img {
+  position: absolute;
+  width: 261px;
+  height: 210px;
+  left: 4px;
+  top: 147px;
+}
+
+#open-quote {
+  position: absolute;
+  width: 32px;
+  height: 30px;
+  left: 10px;
+  top: 360px;
+}
+
+#remember-text {
+  text-align: center;
+  position: absolute;
+  top: 400px;
+  left: 28px;
+  width: 215px;
+  height: 38px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #906fca;
+}
+
+#close-quote {
+  position: absolute;
+  width: 32px;
+  height: 30px;
+  left: 225px;
+  top: 440px;
+}
+
+#dots {
+  position: absolute;
+  width: 73px;
+  height: 8px;
+  left: 97px;
+  bottom: 107px;
+}

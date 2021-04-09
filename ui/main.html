@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Covidia Expert System</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+</head>
+
+<body>
+    <div id='container'>
+        <img src="images/Logo.svg" class="logo-pic">
+        <div class="left-side">
+            <div class="header-text">
+                <p>COVIDIA</p>
+                <p>EXPERT SYSTEM</p>
+            </div> 
+            <div class="card-container">
+                <div class="card card-0">
+                    <div class="rect"></div>
+                    <div class="card-body">
+                        <p>What is your name?</p>
+                        <input id="user-name" type="text" class="test-question-input"
+                            placeholder="Enter your name here ..." />
+                    </div>
+                </div>
+
+                <div class="card card-1">
+                    <div class="rect thermo-background green"></div>
+                    <div class="card-body">
+                        <p> What is your temperature?</p>
+                        <div>
+                            <p class="degree-text"><span id="userTemp">60</span>&#176;C</p>
+                            <div class="slide">
+                                <input type="range" min="20" max="100" class="slider" id="tempRange" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-2">
+                    <div class="rect purple"></div>
+                    <div class="option-container">
+                        <p> Do you have any of these symptoms?</p>
+                        <div class="options">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="buttons-container">
+                <button class="btn btn-back" onclick="go_back()">
+                    Back
+                </button>
+                <button class="btn btn-check-diagnosis" onclick="check_diagnosis()">
+                    Check diagnosis
+                </button>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="protect-text">
+                HOW TO PROTECT YOURSELF
+            </div>
+
+            <div class="covid-text">
+                FROM COVID-19
+            </div>
+            <img src="./images/shield.png" alt="Shield" id="shield-img">
+
+            <img src="./images/open_quote.png" alt="Open_Quote" id="open-quote">
+
+            <div id="remember-text">
+                Remember to socially distance yourself from persons
+            </div>
+
+            <img src="./images/close_quote.png" alt="Close_Quote" id="close-quote">
+
+            <img src="./images/dots.png" alt="Dots" id="dots">
+        </div>
+    </div>
+    <script src="/eel.js"></script>
+    <script src='js/main.js'></script>
+</body>
+
+</html>
