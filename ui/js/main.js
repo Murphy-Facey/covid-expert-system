@@ -43,12 +43,28 @@ function add_severe_symptoms(symptoms) {
   });
 }
 
-function check_diagnosis() {
+
+function remove_user_exists() {
+  var user_exists = document.getElementById("user_exists");
+  
+  if(user_exists.style.opacity !== 0)
+    user_exists.style.opacity = 0;
+}
+
+function check_user_exists() {
   var user_name = document.getElementById('user-name').value;
+  if(user_name === "") return;
+  
+  eel.user_exists(user_name)(check_diagnosis);
+}
 
-  if(user_name === "")
+function check_diagnosis(user_exists) {
+  if(user_exists) {
+    document.getElementById("user_exists").style.opacity = 1;
     return;
+  }
 
+  var user_name = document.getElementById('user-name').value;
   var user_temp = document.getElementById('tempRange').value;
   var mild_symptoms = document.querySelectorAll('#mild:checked');
   var severe_symptoms = document.querySelectorAll('#severe:checked');
@@ -70,6 +86,13 @@ function check_diagnosis() {
     milds,
     severes
   }));
+
+  eel.add_user({
+    "name": user_name,
+    "temperature": user_temp,
+    "mild_symptoms": milds,
+    "severe_symptoms": severes
+  })
 
   document.location.href = "http://localhost:8000/diagnosis.html";
 }

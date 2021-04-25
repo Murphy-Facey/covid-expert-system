@@ -21,8 +21,9 @@
                     <div class="rect"></div>
                     <div class="card-body">
                         <p>What is your name?</p>
+                        <p id="user_exists">This user already exists</p>
                         <input id="user-name" type="text" class="test-question-input"
-                            placeholder="Enter your name here ..." />
+                            placeholder="Enter your name here ..." onclick="remove_user_exists()"/>
                     </div>
                 </div>
 
@@ -52,7 +53,7 @@
                 <button class="btn btn-back" onclick="go_back()">
                     Back
                 </button>
-                <button class="btn btn-check-diagnosis" onclick="check_diagnosis()">
+                <button class="btn btn-check-diagnosis" onclick="check_user_exists()">
                     Check diagnosis
                 </button>
             </div>

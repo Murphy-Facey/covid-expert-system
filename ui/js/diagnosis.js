@@ -20,7 +20,7 @@ function update(value) {
     eel.update_statistics(value[0])(get_stats);
     
     eel.get_treatments(value[0])(set_treatments);
-    console.log(value);
+    //console.log(value);
 }
 
 function get_stats(value) {
@@ -30,7 +30,7 @@ function get_stats(value) {
     document.querySelector(".mild-value").innerHTML = `${mild_persons.toFixed(1)}%`;
     document.querySelector(".severe-value").innerHTML =`${severe_persons.toFixed(1)}%`;
 
-    console.log(value);
+    // console.log(value);
 }
 
 function set_treatments(value) {

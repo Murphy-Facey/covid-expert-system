@@ -47,6 +47,19 @@ body {
   user-select: none;
 }
 
+#user_exists {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  font-size: 14px;
+  color: rgb(236, 12, 57);
+  font-weight: bold;
+  padding: 3px 7px;
+  background-color: hsl(0, 0%, 89%);
+  border-radius: 3px;
+  opacity: 0;
+}
+
 /* ---------------------------------------------- */
 
 .card-container {

@@ -1,10 +1,15 @@
 import eel
+import json
 from pyswip import Prolog
 
 new_file = []
+data = {}
 
 with open("ces-knowledge-base.pl", "r") as f:
     new_file = f.readlines()
+
+with open("users.json", "r") as file:
+    data = json.load(file)
 
 prolog = Prolog()
 prolog.consult('ces-knowledge-base.pl')
@@ -19,6 +24,19 @@ levels = [0, 0]
 temperature = 0
 
 # FUNCTIONS
+@eel.expose
+def user_exists(username):
+    for user in data["users"]:
+        name = user['name'].casefold().replace(" ", "")
+        if name == username.casefold().replace(" ", ""):
+            return True
+    return False
+
+@eel.expose
+def add_user(user):
+    data["users"].append(user)
+    with open("users.json", "w") as file:
+        json.dump(data, file, indent=2)
 
 @eel.expose
 def get_symptoms(type):
@@ -30,7 +48,6 @@ def get_symptoms(type):
 def get_types():
     type_query = list(prolog.query('symptom(X, _).'))
     return extract_results(type_query)
-
 
 @eel.expose
 def have_hypotension(symptoms):
@@ -57,6 +74,7 @@ def update_symptoms(type, symptom):
 def remove_symptom(type, symptom):
     remove_symptom_query = list(prolog.query(
         f'delete_symptom({type}, {symptom}, X).'))
+    remove_symptom_kb(type, symptom)
     return extract_results(remove_symptom_query)
 
 
@@ -100,6 +118,12 @@ def extract_results_2(query_result):
         result.append(item['Y'])
         result.append(item['Z'])
     return result
+
+def remove_symptom_kb(type, symptom):
+    global new_file
+    new_file.remove(f'symptom({type}, {symptom}).\n')
+    with open("ces-knowledge-base.pl", "w") as f:
+        f.writelines(new_file)
 
 def update_symptom_kb(type, symptom):
     global new_file
