@@ -60,7 +60,7 @@ fever(Effect, FahrTemp):-
 covid(ListOfMildSymptoms, ListOfSevereSymptoms, Temperature, Diagnosis):-
     check_mild_symptom(ListOfMildSymptoms, Temperature, MildEffect),
     check_severe_symptom(ListOfSevereSymptoms, SevereEffect),
-    ((MildEffect < 3, SevereEffect > MildEffect; SevereEffect > 2) -> Diagnosis = 'severe';
+    ((MildEffect < 3, SevereEffect >= MildEffect; SevereEffect > 2) -> Diagnosis = 'severe';
      (MildEffect > 2, SevereEffect < MildEffect) -> Diagnosis = 'mild';
      Diagnosis = 'not_known').
 
